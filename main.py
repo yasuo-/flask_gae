@@ -1,6 +1,6 @@
 import logging
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
@@ -17,6 +17,23 @@ def index():
 @app.route('/hello')
 def hello_world():
     return 'Hello World!!!!!!!!!!!!'
+
+
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    if request.method == 'GET':
+        res = request.args.get('get_value')
+    elif request.method == 'POST':
+        res = request.form['post_value']
+
+    return res
+
+
+@app.route('/post_request', methods=['POST'])
+def post_request():
+    username = request.form["username"]
+    print(username)
+    return username + 'Thank you'
 
 
 @app.errorhandler(500)
