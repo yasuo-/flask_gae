@@ -36,6 +36,19 @@ def post_request():
     return username + 'Thank you'
 
 
+@app.route('/post2/<post_id>', methods=['POST'])
+def post(post_id):
+    print(post_id)
+    return 'Thanks post: id = %d' % post_id
+
+
+# 型の指定もできる
+@app.route('/post/<int:post_id>', methods=['POST'])
+def post2(post_id):
+    print(post_id)
+    return 'Thanks post: id = %d' % post_id
+
+
 @app.errorhandler(500)
 def server_error(e):
     logging.exception('An error occurred during a request.')
