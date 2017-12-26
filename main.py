@@ -6,7 +6,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    s = "abc"
+    lis = ["a1", "a2", "a3"]
+    dic = {"name": "make", "age": 24}
+    bl = True
+
+    return render_template('index.html', str=s, lis=lis, dic=dic, bl=bl)
 
 
 @app.route('/hello')
