@@ -1,6 +1,6 @@
 import logging
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response
 app = Flask(__name__)
 
 
