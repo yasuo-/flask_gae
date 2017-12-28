@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ str }}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='app.css')}}">
+    <script src="{{url_for('static', filename='app.js')}}"></script>
+</head>
+<body>
+  <h1>Hello</h1>
+  <h2>Hello</h2>
+  <p>{{ str }}</p>
+  <hr />
+  <ul>
+    {% for x in lis %}
+    <li>{{ x }}</li>
+    {% endfor %}
+  </ul>
+  <hr />
+
+  <p>{{ "name: %s age: %s" % (dic["name"], dic["age"]) }}</p>
+  <hr />
+
+  {% if bl %}
+    <p>True</p>
+  {% else %}
+    <p>False</p>
+  {% endif %}
+
+  <form action="/test" method="get">
+    <button name="get_value" value="from get">get submit</button>
+  </form>
+
+  <form action="/test" method="post">
+    <button name="post_value" value="from post">post submit</button>
+  </form>
+
+  <form action="/post_request" method="post">
+    <button name="username" value="from post">post request</button>
+  </form>
+
+  <form action="/post/2" method="post">
+    <button name="post_id" value="10">post id</button>
+  </form>
+</body>
+</html>
